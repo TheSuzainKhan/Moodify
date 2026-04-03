@@ -1,0 +1,6 @@
+why not we use redis as a primary database.
+
+=> costly => use karta he RAM(read and write operations fast hote he RAM me).
+=> query nhi kar skte => key value pair me data ko store karta he, and value string type me hoti he value ki jisme query karna mushkil he.
+
+MongoDB=> data store krta he BSON format me
