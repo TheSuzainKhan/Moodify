@@ -1,0 +1,7 @@
+UI layer => UI dikhana or nivagation handle karna.(pages, components)
+
+hook layer => State and API layer ko manage karna. (hooks)
+
+state layer => data store karna ( auth.context.jsx, post.context.jsx)
+
+API layer => backend se communicate karna. (services/auth.api.js)
