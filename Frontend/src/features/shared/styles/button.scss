@@ -1,16 +1,24 @@
 .button{
-    background-color: #dd4200; /* Green */
+    background: linear-gradient(135deg, #ff7a18 0%, #ffb347 100%);
     border: none;
-    color: white;
+    color: #11161d;
     padding-inline: 1rem;
-    padding-block: 0.5rem;
+    padding-block: 0.85rem;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     outline: none;
     font-size: 16px;
-
-    border-radius: 0.5rem;
-
+    font-weight: 800;
+    border-radius: 999px;
+    box-shadow: 0 18px 30px rgba(255, 122, 24, 0.24);
+    transition: transform 0.16s ease, box-shadow 0.16s ease, opacity 0.16s ease;
     cursor: pointer;
+
+    &:hover{
+        transform: translateY(-1px);
+        box-shadow: 0 20px 34px rgba(255, 122, 24, 0.3);
+    }
 }
