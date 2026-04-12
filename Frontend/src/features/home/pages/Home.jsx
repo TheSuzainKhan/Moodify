@@ -1,4 +1,6 @@
 import { Link } from 'react-router'
+import { useNavigate } from 'react-router'
+import { useAuth } from '../../auth/hooks/useAuth'
 import FaceExpression from '../../expression/components/FaceExpression'
 import Player from '../components/Player'
 import { useSong } from '../hooks/useSong'
@@ -6,8 +8,15 @@ import './home.scss'
 
 const Home = () => {
     const { handleGetSong, playlist, loading, currentMood, selectSong, song, error } = useSong()
+    const { user, handleLogout } = useAuth()
+    const navigate = useNavigate()
 
     const hasPlaylist = playlist.length > 0
+
+    async function onLogout() {
+        await handleLogout()
+        navigate('/login')
+    }
 
     return (
         <div className="home">
@@ -17,8 +26,19 @@ const Home = () => {
                     <div className="home__nav-copy">Read your face. Pick your soundtrack.</div>
                 </div>
                 <div className="home__nav-actions">
-                    <Link className="home__nav-link" to="/login">Login</Link>
-                    <Link className="home__nav-link home__nav-link--primary" to="/register">Sign up</Link>
+                    {user ? (
+                        <>
+                            <span className="home__nav-user">{user.username}</span>
+                            <button className="home__nav-link home__nav-link--primary" onClick={onLogout}>
+                                Logout
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <Link className="home__nav-link" to="/login">Login</Link>
+                            <Link className="home__nav-link home__nav-link--primary" to="/register">Sign up</Link>
+                        </>
+                    )}
                 </div>
             </header>
 
